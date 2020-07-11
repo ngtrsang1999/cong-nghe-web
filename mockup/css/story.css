@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Quicksand:wght@300&display=swap');
+*{
+	font-family: Quicksand;
+}
+.row{
+	margin: 0px;
+}
+.main-content-story {
+	margin-bottom: 10px;
+}
+.infor-story {
+	padding-top: 20px;
+}
+.main-content-story .container{
+	padding: 15px;
+	height: 500px;
+	background-color: #fff;
+}
+
+.if-left{
+	text-align: center;
+	min-width: 225px;
+	margin: 0 12px 0 4px;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	float: left;
+}
+.if-left img {
+	box-shadow: 0 0 8px 0 #757575;
+    border-radius: 6px;
+	width: 190px;
+	height: auto;
+	max-width: 100%;
+}
+
+.if-right{
+	width: calc(100% - 246px);
+	float: right;
+
+}
+
+.if-right .name-story {
+	font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    padding-bottom: 5px;
+    font-family: inherit;
+}
+
+.txt{
+	font-family: Quicksand,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 15px;
+	
+}
+
+.txt .info-item{
+	display: block;
+	line-height: 30px;
+	margin-bottom: 0px;
+}
+
+.txt .info-item > a{
+	color: #424242;
+	text-decoration: none;
+}
+
+.txt .info-item > a:hover{
+	color: #f18121!important;
+    transition: all .3s ease;
+}
+
+.txt .info-item .sp01{
+	margin-left: 15px;
+}
+
+.icon-c {
+	color: #f18121;
+}
+
+.list-categories{
+	height: 47px;
+	padding: 0px;
+	padding-bottom: 10px;
+	border-color: #f18121;
+    color: #f18121;
+    margin-top: 5px;
+}
+
+.list-categories .category-item {
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.list-categories .category-item a{
+	border-radius: 3px;
+    transition: all .3s ease;
+    color: #f18121;
+	display: inline-block;
+	line-height: 22px;
+	text-decoration: none;
+	border: 1px solid #f18121;
+	padding: 4px 6px;
+	margin-right: 10px;
+}
+
+.list-categories .category-item a:hover {
+	background-color: #f18121;
+	color: #fff!important;
+}
+
+.story-detail-menu{
+	padding: 0px;
+}
+
+.story-detail-menu li{
+	display: inline-block;
+	margin-right: 8px;
+}
+
+.story-detail-menu li a{
+	text-decoration: none;
+	text-align: center;
+	color: #fff!important;
+	border-radius: 290486px;
+	padding: 5px 16px;
+	line-height: 24px;
+	display: inline-block;
+	font-size: 16px;
+	min-width: 145px;
+}
+
+.story-detail-menu li a:hover{
+	opacity: .6;
+}
+.li01 a{
+	background-color: #8bc34a;
+}
+
+.li02 a{
+	background-color: rgb(255, 40, 83);
+}
+
+.li03 a{
+	background-color: rgb(189, 16, 224);
+}
+
+.ds-chuong-story{
+}
+
+.title-ds-chuong h2{
+	font-size: 24px;
+	color: #f18121;
+	padding-left: 30px;
+	font-weight: 100;
+}

@@ -1,0 +1,13 @@
+
+@media  {
+    
+}
+
+.modal-content{
+	border: none;
+	margin:0 auto;
+	display: inline-block;
+	height: 410px;
+	width: 700px;
+	background: url(../logo/logo_login.png) no-repeat;
+}

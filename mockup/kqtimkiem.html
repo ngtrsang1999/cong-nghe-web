@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Truyen SH</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+
+    <!-- import fontawesome -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- import my css login -->
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+<body>
+
+<div class="outsite">
+
+    <section class="top-nav">
+        <div class="container ">
+                <div class="d-flex">
+                    <div class="top-nav-left ">
+                        <a class="navbar-brand" href="#">
+                            <img src="./logo/logo_home.png" class="rounded img-fluid" alt="Cinque Terre"></a>
+                    </div>
+                    <div class="top-nav-input ">
+                        <form class="form-inline" action="/action_page.php">
+                            <div class="input-group">
+
+                                <input type="text" class="form-control" placeholder="Username">
+                                <div class="input-group-append">
+                                    <button class="btn_search " type="submit"><i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="list-top-search">
+                            <!-- nội dung tìm kiếm -->
+                        </div>
+                    </div>
+                    <div class="top-nav-ls-td ml-auto">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Lịch Sử</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Theo Dõi</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="top-nav-btn btn-group">
+                        <button type="button" class="btn btn-dangnhap" data-toggle="modal" data-target="#myModal">Đăng nhập</button>
+                        <button type="button" class="btn btn-dangky" >Đăng ký</button>
+                    </div>
+                        
+
+                    <nav class="navbar navbar-expand-xl navbar-dark open-menu d-lg-none" >
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-small">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                           
+                        </nav>                   
+                </div>
+                
+                <div class="collapse navbar-collapse d-lg-none" id="menu-small">
+                    <ul class="navbar-nav">
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+                    <li class="row nav-item nav-item-main-menu  dropdown-main-menu ">
+                        <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                            Thể Loại
+                        </a>
+                        <div class="my-drop-menu col-12">
+                            <a class="dropdown-item " href="#">Link 1</a>
+                            <a class="dropdown-item " href="#">Link 2</a>
+                            <a class="dropdown-item " href="#">Link 3</a>
+                            <a class="dropdown-item " href="#">Link 1</a>
+                            <a class="dropdown-item " href="#">Link 2</a>
+                            <a class="dropdown-item " href="#">Link 3</a>
+                        </div>
+                    </li>
+                    <li class="row nav-item nav-item-main-menu dropdown-main-menu">
+                        <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                            Sắp Xếp
+                        </a>
+                        <div class="my-drop-menu col-12">
+                            <a class="dropdown-item" href="#">Link 4</a>
+                            <a class="dropdown-item" href="#">Link 5</a>
+                            <a class="dropdown-item" href="#">Link 6</a>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Mới Cập Nhật</a>
+                    </li>
+                    <li class="row nav-item nav-item-main-menu dropdown-main-menu">
+                        <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                            Trạng Thái
+                        </a>
+                        <div class="my-drop-menu col-12">
+                            <a class="dropdown-item" href="#">Link 4</a>
+                            <a class="dropdown-item" href="#">Link 5</a>
+                            <a class="dropdown-item" href="#">Link 6</a>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Lịch Sử</a>
+                    </li>
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Theo dõi</a>
+                    </li>
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Đọc Nhiều</a>
+                    </li>
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Yêu Thích</a>
+                    </li>
+                </ul>
+                  </div> 
+        </div>
+
+        <!-- </section class="top-nav"> -->
+    </section>
+
+    <section class="main-menu ">
+        <div class="container mx-auto">
+            <nav class="navbar navbar-expand-md ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-top">
+                     <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="navbar-top">
+                    <ul class="navbar-nav">
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Trang chủ</a>
+                        </li>
+                        <li class="nav-item nav-item-main-menu  dropdown-main-menu">
+                            <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                                Thể Loại
+                            </a>
+                            <div class="dropdown-menu ">
+                                <a class="dropdown-item " href="#">Link 1</a>
+                                <a class="dropdown-item " href="#">Link 2</a>
+                                <a class="dropdown-item " href="#">Link 3</a>
+                                <a class="dropdown-item " href="#">Link 1</a>
+                                <a class="dropdown-item " href="#">Link 2</a>
+                                <a class="dropdown-item " href="#">Link 3</a>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-item-main-menu dropdown-main-menu">
+                            <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                                Sắp Xếp
+                            </a>
+                            <div class="dropdown-menu ">
+                                <a class="dropdown-item" href="#">Link 4</a>
+                                <a class="dropdown-item" href="#">Link 5</a>
+                                <a class="dropdown-item" href="#">Link 6</a>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Mới Cập Nhật</a>
+                        </li>
+                        <li class="nav-item nav-item-main-menu dropdown-main-menu">
+                            <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                                Trạng Thái
+                            </a>
+                            <div class="dropdown-menu ">
+                                <a class="dropdown-item" href="#">Link 4</a>
+                                <a class="dropdown-item" href="#">Link 5</a>
+                                <a class="dropdown-item" href="#">Link 6</a>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Lịch Sử</a>
+                        </li>
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Theo dõi</a>
+                        </li>
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Đọc Nhiều</a>
+                        </li>
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Yêu Thích</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+<!-- </div class="outsite"> -->
+
+<!--section top-trend -->
+    <section class="top-trend">
+        <div class="container ">
+            <div class="row">
+                <div class="trend-left col-3">
+                    <div class="trend-item">
+                        <a href="">
+                            <img src="img/trend-l1.jpg" alt="">
+                            <div class="chapter-number green">Chương 346</div>
+                            <div class="bottom-shadow"></div>
+                            <div class="captions">
+                                <h3>Kingdom – Vương Giả Thiên Hạ</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="trend-item">
+                        <a href="">
+                            <img src="img/trend-l2.jpg" alt="">
+                            <div class="chapter-number red">Chương 2</div>
+                            <div class="bottom-shadow"></div>
+                            <div class="captions">
+                                <h3>Kingdom – Vương Giả Thiên Hạ</h3>
+                            </div>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="trend-center col-6">
+                    <div class="trend-center-item">
+                        <img src="img/trend.jpg" alt="">
+                        <div class="chapter-number blue">Chương 3</div>
+                    </div>
+                </div>
+
+                <div class="trend-right col-3">
+                    <div class="trend-item">
+                        <img src="img/trend-r1.jpg" alt="">
+                        <div class="chapter-number violet">Chương 4</div>
+                    </div>
+                    <div class="trend-item">
+                        <img src="img/trend-r2.jpg" alt="">
+                        <div class="chapter-number orange">Chương 5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--</section class="top-trend"> -->
+
+<!-- Form đăng nhập -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <span class="login-caption">
+                    Dù ai đi ngược về xuôi,</br>
+                    đến giờ đọc truyện cứ vào SH
+                </span>
+                <div>
+                    <div class="group-buttons">
+                        <a href="#"><button type="button" class="btn btn-outline-primary is-active">Đăng nhập</button></a>
+                        <a href="#"><button type="button" class="btn btn-outline-primary">Đăng ký</button></a>
+                    </div>
+
+                    <div class="tab-content">
+                        <div class="form-login  ">
+                            <input type="email" placeholder="Email" id="email_login">
+                            <input type="password" placeholder="Mật khẩu" id="password_login">
+                            <button type="submit" class="button_login btn btn-lg">Đăng nhập</button>
+                            <a href="" class="forget-password-link">Quên mật khẩu</a>
+                        </div>
+
+                        <div class="form-registration is-active ">
+                            <input type="email" placeholder="Email" id="email_register">
+                            <input type="password" placeholder="Mật khẩu" id="password_register">
+                            <input type="password" placeholder="Nhập lại mật khẩu" id="password_register">
+                            <button type="submit" id="button_register">Đăng ký</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- HTML phần nội dung -->
+    <section class="main-content">
+        <div class="container">
+             <div class="list-story">
+                <div class="title-list-story">Kết quả tìm kiếm cho : ss</div>
+                <ul class="grid-6 list-story">
+                        <li>
+                            <div class="story-item">
+                                <a href="" title ="Hoạn Phi Hoàn Triều">
+                                    <img src="img/story1.jpg" alt="Hoạn Phi Hoàn Triều">
+                                </a>
+
+                                <h3 class="title-story">
+                                    <a href="">
+                                        Hoạn phi hoàn triều
+                                    </a>
+                                 </h3>
+
+                                 <div class="episode-story">
+                                     <a href="">
+                                         Chương 59
+                                     </a>
+                                 </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="story-item">
+                                <a href="">
+                                    <img src="img/story2.jpg" alt="HĐại Chiến Yêu Tinh">
+                                </a>
+                                <h3 class="title-story">
+                                    <a href="">
+                                       Đại Chiến Yêu Tinh
+                                    </a>
+                                 </h3>
+
+                                 <div class="episode-story">
+                                     <a href="">
+                                         Chương 19
+                                     </a>
+                                 </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="story-item">
+                                <a href="" title ="Hoạn Phi Hoàn Triều">
+                                    <img src="img/story1.jpg" alt="Hoạn Phi Hoàn Triều">
+                                </a>
+
+                                <h3 class="title-story">
+                                    <a href="">
+                                        Hoạn phi hoàn triều
+                                    </a>
+                                 </h3>
+
+                                 <div class="episode-story">
+                                     <a href="">
+                                         Chương 59
+                                     </a>
+                                 </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="story-item">
+                                <a href="">
+                                    <img src="img/story2.jpg" alt="HĐại Chiến Yêu Tinh">
+                                </a>
+                                <h3 class="title-story">
+                                    <a href="">
+                                       Đại Chiến Yêu Tinh
+                                    </a>
+                                 </h3>
+
+                                 <div class="episode-story">
+                                     <a href="">
+                                         Chương 19
+                                     </a>
+                                 </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="story-item">
+                                <a href="" title ="Hoạn Phi Hoàn Triều">
+                                    <img src="img/story1.jpg" alt="Hoạn Phi Hoàn Triều">
+                                </a>
+
+                                <h3 class="title-story">
+                                    <a href="">
+                                        Hoạn phi hoàn triều
+                                    </a>
+                                 </h3>
+
+                                 <div class="episode-story">
+                                     <a href="">
+                                         Chương 59
+                                     </a>
+                                 </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="story-item">
+                                <a href="">
+                                    <img src="img/story2.jpg" alt="HĐại Chiến Yêu Tinh">
+                                </a>
+                                <h3 class="title-story">
+                                    <a href="">
+                                       Đại Chiến Yêu Tinh
+                                    </a>
+                                 </h3>
+
+                                 <div class="episode-story">
+                                     <a href="">
+                                         Chương 19
+                                     </a>
+                                 </div>
+                            </div>
+                        </li>
+
+
+
+                        <li>
+                            <div class="story-item">
+                                <a href="" title ="Hoạn Phi Hoàn Triều">
+                                    <img src="img/story1.jpg" alt="Hoạn Phi Hoàn Triều">
+                                </a>
+
+                                <h3 class="title-story">
+                                    <a href="">
+                                        Hoạn phi hoàn triều
+                                    </a>
+                                 </h3>
+
+                                 <div class="episode-story">
+                                     <a href="">
+                                         Chương 59
+                                     </a>
+                                 </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="story-item">
+                                <a href="" title ="Hoạn Phi Hoàn Triều">
+                                    <img src="img/story1.jpg" alt="Hoạn Phi Hoàn Triều">
+                                </a>
+
+                                <h3 class="title-story">
+                                    <a href="">
+                                        Hoạn phi hoàn triều
+                                    </a>
+                                 </h3>
+
+                                 <div class="episode-story">
+                                     <a href="">
+                                         Chương 59
+                                     </a>
+                                 </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="story-item">
+                                <a href="">
+                                    <img src="img/story2.jpg" alt="HĐại Chiến Yêu Tinh">
+                                </a>
+                                <h3 class="title-story">
+                                    <a href="">
+                                       Đại Chiến Yêu Tinh
+                                    </a>
+                                 </h3>
+
+                                 <div class="episode-story">
+                                     <a href="">
+                                         Chương 19
+                                     </a>
+                                 </div>
+                            </div>
+                        </li>
+                    </ul>
+            </div>
+
+            <ul class="pagination d-flex justify-content-center">
+                <li class="page-item"><a class="page-link" href="#"><<</a></li>
+                <li class="page-item"><a class="page-link" href="#"><</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                <li class="page-item"><a class="page-link" href="#">></a></li>
+                <li class="page-item"><a class="page-link" href="#">>></a></li>
+             </ul>
+        </div>
+    </section>
+    
+    <section class="footer">
+        <div class="container">
+            <div class="footer-content d-flex row  text-center" >
+                <div class="footer-left col-md-3">
+                    <a href="">
+                        <img src="logo/logo_home.png" alt="">
+                    </a>
+                </div>
+
+                <div class="footer-email m-auto col-md-5">
+                    Copyright © 2019 - Email: sangnt72@wru.vn
+                </div>
+                <div class="footer-phone-number col-md-4">
+                     Phone number : 0916822260
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
