@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Truyen SH</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+
+    <!-- import fontawesome -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- import my css login -->
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/story.css">
+</head>
+<body>
+
+<div class="outsite" style="background-color: #424242;">
+
+    <section class="top-nav" >
+        <div class="container ">
+                <div class="d-flex">
+                    <div class="top-nav-left ">
+                        <a class="navbar-brand" href="#">
+                            <img src="./logo/logo_home.png" class="rounded img-fluid" alt="Cinque Terre"></a>
+                    </div>
+                    <div class="top-nav-input ">
+                        <form class="form-inline" action="/action_page.php">
+                            <div class="input-group">
+
+                                <input type="text" class="form-control" placeholder="Username">
+                                <div class="input-group-append">
+                                    <button class="btn_search " type="submit"><i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="list-top-search">
+                            <!-- nội dung tìm kiếm -->
+                        </div>
+                    </div>
+                    <div class="top-nav-ls-td ml-auto">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Lịch Sử</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Theo Dõi</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="top-nav-btn btn-group">
+                        <button type="button" class="btn btn-dangnhap" data-toggle="modal" data-target="#myModal">Đăng nhập</button>
+                        <button type="button" class="btn btn-dangky" >Đăng ký</button>
+                    </div>
+                        
+
+                    <nav class="navbar navbar-expand-xl navbar-dark open-menu d-lg-none" >
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-small">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                           
+                        </nav>                   
+                </div>
+                
+                <div class="collapse navbar-collapse d-lg-none" id="menu-small">
+                    <ul class="navbar-nav">
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+                    <li class="row nav-item nav-item-main-menu  dropdown-main-menu ">
+                        <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                            Thể Loại
+                        </a>
+                        <div class="my-drop-menu col-12">
+                            <a class="dropdown-item " href="#">Link 1</a>
+                            <a class="dropdown-item " href="#">Link 2</a>
+                            <a class="dropdown-item " href="#">Link 3</a>
+                            <a class="dropdown-item " href="#">Link 1</a>
+                            <a class="dropdown-item " href="#">Link 2</a>
+                            <a class="dropdown-item " href="#">Link 3</a>
+                        </div>
+                    </li>
+                    <li class="row nav-item nav-item-main-menu dropdown-main-menu">
+                        <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                            Sắp Xếp
+                        </a>
+                        <div class="my-drop-menu col-12">
+                            <a class="dropdown-item" href="#">Link 4</a>
+                            <a class="dropdown-item" href="#">Link 5</a>
+                            <a class="dropdown-item" href="#">Link 6</a>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Mới Cập Nhật</a>
+                    </li>
+                    <li class="row nav-item nav-item-main-menu dropdown-main-menu">
+                        <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                            Trạng Thái
+                        </a>
+                        <div class="my-drop-menu col-12">
+                            <a class="dropdown-item" href="#">Link 4</a>
+                            <a class="dropdown-item" href="#">Link 5</a>
+                            <a class="dropdown-item" href="#">Link 6</a>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Lịch Sử</a>
+                    </li>
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">
+                        Theo dõi</a>
+                    </li>
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Đọc Nhiều</a>
+                    </li>
+                    <li class="nav-item nav-item-main-menu">
+                        <a class="nav-link" href="#">Yêu Thích</a>
+                    </li>
+                </ul>
+                  </div> 
+        </div>
+
+        <!-- </section class="top-nav"> -->
+    </section>
+
+    <section class="main-menu ">
+        <div class="container mx-auto">
+            <nav class="navbar navbar-expand-md ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-top">
+                     <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="navbar-top">
+                    <ul class="navbar-nav">
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Trang chủ</a>
+                        </li>
+                        <li class="nav-item nav-item-main-menu  dropdown-main-menu">
+                            <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                                Thể Loại
+                            </a>
+                            <div class="dropdown-menu ">
+                                <a class="dropdown-item " href="#">Link 1</a>
+                                <a class="dropdown-item " href="#">Link 2</a>
+                                <a class="dropdown-item " href="#">Link 3</a>
+                                <a class="dropdown-item " href="#">Link 1</a>
+                                <a class="dropdown-item " href="#">Link 2</a>
+                                <a class="dropdown-item " href="#">Link 3</a>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-item-main-menu dropdown-main-menu">
+                            <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                                Sắp Xếp
+                            </a>
+                            <div class="dropdown-menu ">
+                                <a class="dropdown-item" href="#">Link 4</a>
+                                <a class="dropdown-item" href="#">Link 5</a>
+                                <a class="dropdown-item" href="#">Link 6</a>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Mới Cập Nhật</a>
+                        </li>
+                        <li class="nav-item nav-item-main-menu dropdown-main-menu">
+                            <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
+                                Trạng Thái
+                            </a>
+                            <div class="dropdown-menu ">
+                                <a class="dropdown-item" href="#">Link 4</a>
+                                <a class="dropdown-item" href="#">Link 5</a>
+                                <a class="dropdown-item" href="#">Link 6</a>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Lịch Sử</a>
+                        </li>
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Theo dõi</a>
+                        </li>
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Đọc Nhiều</a>
+                        </li>
+                        <li class="nav-item nav-item-main-menu">
+                            <a class="nav-link" href="#">Yêu Thích</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+<!-- </div class="outsite"> -->
+
+
+<!-- Form đăng nhập -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <span class="login-caption">
+                    Dù ai đi ngược về xuôi,</br>
+                    đến giờ đọc truyện cứ vào SH
+                </span>
+                <div>
+                    <div class="group-buttons">
+                        <a href="#"><button type="button" class="btn btn-outline-primary is-active">Đăng nhập</button></a>
+                        <a href="#"><button type="button" class="btn btn-outline-primary">Đăng ký</button></a>
+                    </div>
+
+                    <div class="tab-content">
+                        <div class="form-login  ">
+                            <input type="email" placeholder="Email" id="email_login">
+                            <input type="password" placeholder="Mật khẩu" id="password_login">
+                            <button type="submit" class="button_login btn btn-lg">Đăng nhập</button>
+                            <a href="" class="forget-password-link">Quên mật khẩu</a>
+                        </div>
+
+                        <div class="form-registration is-active ">
+                            <input type="email" placeholder="Email" id="email_register">
+                            <input type="password" placeholder="Mật khẩu" id="password_register">
+                            <input type="password" placeholder="Nhập lại mật khẩu" id="password_register">
+                            <button type="submit" id="button_register">Đăng ký</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phần nội dung -->
+
+    <section class="main-content-readstory">
+        <div class="container row mx-auto">
+            <div class="title-readstory col-12">
+                <div class="path-top col-12 p-0">
+                    <ul class="p-0">
+                        <li><a href="">Trang Chủ</a></li>
+                        <li>    <i class="fa fa-angle-right" aria-hidden="true"></i>    <a href="">Fairy Tail 100 Year Quest</a></li>
+                        <li>    <i class="fa fa-angle-right" aria-hidden="true"></i>    <a href="">Chương 54</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 p-0 path-bottom d-md-flex">
+                    <h1><a href="">Fairy Tail 100 Year Quest</a> Chap 54</h1>
+                    <div class="ml-md-2">
+                      <time >(Cập nhật lúc: 18:32 11/06/2020)</time>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-see-content col-12 mt-5  p-0 p-lg-5 text-center">
+                <ul class="p-0">
+                   <li>
+                        <img src="img/read1.jpg" alt="">
+                   </li> 
+                   <li>
+                        <img src="img/read1.jpg" alt="">
+                   </li> 
+                   <li>
+                        <img src="img/read1.jpg" alt="">
+                   </li> 
+                   <li>
+                        <img src="img/read1.jpg" alt="">
+                   </li> 
+                   <li>
+                        <img src="img/read1.jpg" alt="">
+                   </li> 
+                   <li>
+                        <img src="img/read1.jpg" alt="">
+                   </li> 
+                </ul>
+            </div>
+        </div>
+
+    </section>
+    <!-- end nội dung -->
+
+    <!-- phần footer -->
+    <section class="story-see-footer">
+        <div class="container d-flex">
+            <ul class="pagination mx-auto m-0">
+                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></li>
+                <p class=" chapter-now mx-3 text-center">Chương 22</p>
+                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
+            </ul>
+         </div>
+    </section>
+
+    <!-- end footer -->
+</div>
+</body>
+</html>
