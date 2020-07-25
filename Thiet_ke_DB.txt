@@ -1,0 +1,18 @@
+Thiết kế database trang Truyện:
+
+categories (category_code, category_name, category_description, create_at, update_at, editer);
+
+stories(story_code, story_name, another_name_story , story_description, story_author_name,story_author_id
+		count_views,count_followes, count_likes, story_status, story_avatar, story_categories, create_at, update_at);
+
+user(user_id , user_name, user_password, user_group, user_email, user_birthday, user_address, user_numberphone);
+
+group_user(group_code, group_name, group_description);
+
+act(act_code, act_name, act_description);
+
+group_act(group_code, act_code);		
+
+chapter(chapter_code, chapter_name, chapter_number, story_code, create_at, chapter_content);
+
+status(status_code, status_name, status_description);
