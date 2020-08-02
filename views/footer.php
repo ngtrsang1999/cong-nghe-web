@@ -23,5 +23,6 @@
      <script type="text/javascript" src="./js/jquery.lazy.min.js"></script>
      <script src="js/js.js"></script>
      <script src="js/load_data.js"></script>
+     <script src="js/quanly.js"></script>
 </body>
 </html>

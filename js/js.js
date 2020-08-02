@@ -41,6 +41,23 @@ function check_form_change_pw(){
 	return true;
 }
 
+function check_form_quanly_taikhoan(){
+	var user_hoten = $('#txtHoTen').val();
+	var user_email = $('#txtEmail').val();
+	var user_numberphone = $('#txtNumberPhone').val();
+	var user_birthday = $('#txtNgaySinh').val();
+	var user_gioitinh = $('#txtGioiTinh').val();
+	var user_diachi = $('#txtDiaChi').val();
+	var user_password = $('#txtPassWord').val();
+	if(user_hoten == '' || user_email == '' || user_numberphone == '' 
+	|| user_birthday == '' || user_gioitinh == '' || user_diachi == '' || user_password == ''){
+			return false;
+	}else{
+		return true;
+	}
+}
+
+
 function xem_description(){
 	$('.clearbt').hide();
 	var height_p = $('.story-descripstion p').outerHeight();
@@ -61,6 +78,7 @@ $('.btn-dangnhap, .modal-btn-dangnhap').on('click', function(){
 	$('.warning-login').hide();
 	show_dangnhap();
 });
+$('.user-links').hide();
 
 $(document).ready(function(){
 	// đăng nhập
@@ -78,7 +96,6 @@ $(document).ready(function(){
 		}
 	});
 	$('.warning-login').hide();
-	$('.user-links').hide();
 	$('#button_login').on('click', function(){
 		var user_id = $('#email_login').val();
 		var user_password = $('#password_login').val();
@@ -92,10 +109,10 @@ $(document).ready(function(){
 						method: "POST",
 						data:{user_id:user_id, user_password:user_password},
 						success:function(data){
-							if(data == 1){
+							if(data == '1'){
 								location.reload();
 							}else{
-								$('.warning-login').html('Tên đăng nhập hoặc mật khẩu không đúng!');
+								$('.warning-login').html(data);
 								$('.warning-login').show();	
 							}
 						}
@@ -126,12 +143,10 @@ $(document).ready(function(){
 	});
 
 	// Đổi mật khẩu
-	$('#btn-change-pw').on('click', function(){
+	$('#btn-change-pw, #link-change-pw').on('click', function(){
 		$('.warning-change-pw').hide();
 		$('.success-change-pw').hide();
 	});
-
-
 
 
 	$('#button_change_pw').on('click', function(){
@@ -191,7 +206,14 @@ $(document).ready(function(){
 				}
 			});
 	});
-
+	function check_form_email(str){
+		var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+		if (!filter.test(str)){
+			return false;
+		}else{
+			return true;
+		}
+	}
 	function check_form_change_register(){
 		var user_id = $('#email_register').val();
 		var user_password = $('#password_register').val();
@@ -251,9 +273,38 @@ $(document).ready(function(){
 
 	});
 
-
 	// end đăng ký tài khoản
+	//check input chỉ chó nhập các ký tự a-zA-Z0-9_
+	$('.ip-just-a-zA-Z0-9_').keyup(function(){
+		if (/\W/g.test(this.value)){
+			this.value = this.value.replace(/\W/g, '');
+		}
+	});
+	$('#warning-email').hide();
+	$('#txtEmail').change(function(){
+		if (!check_form_email(this.value)){
+			$('#warning-email').show();
+		}else{
+			$('#warning-email').hide();
+		}
+	});
 
+	$('#warning-submit').hide();
+	$('#btn-submit-thongtin').prop('disabled', true);
+	$('#form-quanly-taikhoan').keyup(function(){
+		var email =$('#txtEmail').val();
+		// Kiểm tra nếu đã thỏa mã hết thì cho submit
+		if(check_form_quanly_taikhoan() && check_form_email(email)){
+			$('#btn-submit-thongtin').prop('disabled', false);
+			$('#warning-submit').hide();
+		}else{
+			if(!check_form_quanly_taikhoan()){
+				$('#warning-submit').show();
+			}else{
+				$('#warning-submit').hide();
+			}
+		}
+	});
 });
 
 

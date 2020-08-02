@@ -54,6 +54,89 @@
 	    }
 	    return $page_max;
 	}
+	function getListMyStoriesQuanLy($connect ,$keySearch, $tinh_trang, $category_code, $story_author_id){
+		$keySearch = "%".trim($keySearch)."%";
+		$sql2 = "SELECT * FROM stories ";
+		if($tinh_trang != 'all'){
+			$sql2 .= "WHERE (tinh_trang = '$tinh_trang') ";
+		}
+		if($category_code != 'all'){
+			if($tinh_trang != 'all'){
+				$sql2 .= "AND (story_code in (SELECT story_code FROM story_category WHERE category_code = 
+				'$category_code')) ";
+			}else{
+				$sql2 .= "WHERE (story_code in (SELECT story_code FROM story_category WHERE category_code = 
+				'$category_code')) ";
+			}
+		}
+		if($tinh_trang != 'all' || $category_code != 'all'){
+			$sql2 .= "AND (story_name LIKE '$keySearch') ";
+		}else{
+			$sql2 .= "WHERE (story_name LIKE '$keySearch') ";
+		}
+
+		$sql2 .= "AND (story_author_id = '$story_author_id') ";
+	    if(!($data_rs = mysqli_query($connect, $sql2))){
+	    	return array();
+	    }else{
+	    	return $data_rs->fetch_all(MYSQLI_ASSOC);
+	    }
+	}
+
+	function getListAllStoriesQuanLy($connect ,$keySearch, $tinh_trang, $category_code){
+		$keySearch = "%".trim($keySearch)."%";
+		$sql2 = "SELECT * FROM stories ";
+		if($tinh_trang != 'all'){
+			$sql2 .= "WHERE (tinh_trang = '$tinh_trang') ";
+		}
+		if($category_code != 'all'){
+			if($tinh_trang != 'all'){
+				$sql2 .= "AND (story_code in (SELECT story_code FROM story_category WHERE category_code = 
+				'$category_code')) ";
+			}else{
+				$sql2 .= "WHERE (story_code in (SELECT story_code FROM story_category WHERE category_code = 
+				'$category_code')) ";
+			}
+		}
+		if($tinh_trang != 'all' || $category_code != 'all'){
+			$sql2 .= "AND (story_name LIKE '$keySearch') ";
+		}else{
+			$sql2 .= "WHERE (story_name LIKE '$keySearch') ";
+		}
+	    if(!($data_rs = mysqli_query($connect, $sql2))){
+	    	return array();
+	    }else{
+	    	return $data_rs->fetch_all(MYSQLI_ASSOC);
+	    }
+	}
+
+
+	function isMyStory($connect, $story_code, $story_author_id){
+		$sql = "SELECT * FROM stories WHERE (story_code = ?) AND ( story_author_id = ?)";
+		if ($connect->connect_errno) {
+		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
+		}
+		if (!($stmt = $connect->prepare($sql))){
+		     echo "Prepare failed: (" . $connect->errno . ") " . $connect->error;
+		}
+
+		/* Prepared statement, stage 2: bind and execute */
+		if (!$stmt->bind_param("ss", $story_code, $story_author_id)){
+		    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+
+		if (!$stmt->execute()) {
+		    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+		if (!($res = $stmt->get_result())) {
+		    echo "Getting result set failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+		if($res->num_rows > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	function getListStoriesForPageList($connect ,$limit = 18, $data, $page){
 		$sql1 = "SELECT COUNT(*) as max FROM stories ";
 		$sql2 = "SELECT * FROM stories ";
@@ -113,6 +196,24 @@
 	    }
 	}
 
+	function addStory($connect,$data){
+		if ($connect->connect_errno) {
+		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
+		}
+
+		if (!($stmt = $connect->prepare("
+			INSERT INTO  stories (story_code, story_name, another_name_story, story_description, story_author_name, story_author_id, count_views, views_day, views_week, views_month, views_year, count_followes, count_likes, story_status, story_avatar, story_categories, create_at, update_at, tinh_trang) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+			"))){
+		     echo "Prepare failed: (" . $connect->errno . ") " . $connect->error;
+		}
+		/* Prepared statement, stage 2: bind and execute */
+		if (!$stmt->bind_param("ssssssiiiiiiissssss",  $data["story_code"],  $data["story_name"],  $data["another_name_story"],  $data["story_description"],  $data["story_author_name"],  $data["story_author_id"],  $data["count_views"],  $data["views_day"],  $data["views_week"],  $data["views_month"],  $data["views_year"],  $data["count_followes"],  $data["count_likes"],  $data["story_status"],  $data["story_avatar"],  $data["story_categories"],  $data["create_at"],  $data["update_at"],  $data["tinh_trang"])){
+		    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+
+		return $stmt->execute();
+	}
+
 	function upLikes($connect, $story_code){
 		if ($connect->connect_errno) {
 		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
@@ -129,6 +230,67 @@
 		if (!$stmt->execute()) {
 		    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 		}
+	}
+
+	function updateTimeUpdateStory($connect, $story_code, $time){
+		if ($connect->connect_errno) {
+		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
+		}
+
+		if (!($stmt = $connect->prepare("UPDATE  stories SET update_at = ? where ( story_code= ? )"))){
+		     echo "Prepare failed: (" . $connect->errno . ") " . $connect->error;
+		}
+		/* Prepared statement, stage 2: bind and execute */
+		if (!$stmt->bind_param("ss",  $time,  $story_code)){
+		    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+
+		return  $stmt->execute();
+	}
+
+
+	function updateMyStory($connect,$story_code, $data){
+		if ($connect->connect_errno) {
+		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
+		}
+
+		if (!($stmt = $connect->prepare("
+			UPDATE  stories SET 
+			-- story_code = ?, 
+			story_name = ?,
+			another_name_story = ?, story_description = ?,
+			story_author_name = ?, story_status = ?,
+			update_at = ?
+			where (story_code= '$story_code' )
+			"))){
+		     echo "Prepare failed: (" . $connect->errno . ") " . $connect->error;
+		}
+		/* Prepared statement, stage 2: bind and execute */
+		if (!$stmt->bind_param("ssssss", $data['story_name'], $data['another_name_story'], $data['story_description'], $data['story_author_name'], $data['story_status'], $data['update_at'])){
+		    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+
+		return $stmt->execute();
+	}
+
+	function deleteStoryByID($connect, $story_code){
+		if ($connect->connect_errno) {
+		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
+		}
+
+		if (!($stmt = $connect->prepare("DELETE FROM `stories` WHERE ( story_code= ? )"))){
+		     echo "Prepare failed: (" . $connect->errno . ") " . $connect->error;
+		}
+		/* Prepared statement, stage 2: bind and execute */
+		if (!$stmt->bind_param("s",  $story_code)){
+		    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+
+		// if (!$stmt->execute()) {
+		//     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+		// }
+
+		return $stmt->execute();
 	}
 
 	function upFollowes($connect, $story_code){
@@ -264,4 +426,63 @@
 			return NULL;
 		}
 	}
+
+	function resultSearchStoryName($connect, $keyword){
+		$keyword = "%".$keyword."%";
+		if ($connect->connect_errno) {
+		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
+		}
+		if (!($stmt = $connect->prepare("SELECT * FROM stories 
+			 WHERE (LOWER(story_name) LIKE LOWER(?)) OR (LOWER(another_name_story) LIKE LOWER(?))"))){
+		     echo "Prepare failed: (" . $connect->errno . ") " . $connect->error;
+		}
+		/* Prepared statement, stage 2: bind and execute */
+		if (!$stmt->bind_param("ss", $keyword, $keyword)){
+		    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+
+		if (!$stmt->execute()) {
+		    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+		if (!($res = $stmt->get_result())) {
+		    echo "Getting result set failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+		// $res = $res->fetch_all(MYSQLI_ASSOC);
+		if($res->num_rows > 0){
+			$res = $res->fetch_all(MYSQLI_ASSOC);
+			return $res;
+		}else{
+			return NULL;
+		}
+	}
+
+	function resultSearchStoryAuthurName($connect, $keyword){
+		$keyword = "%".$keyword."%";
+		if ($connect->connect_errno) {
+		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
+		}
+		if (!($stmt = $connect->prepare("SELECT * FROM stories WHERE LOWER(story_author_name) LIKE LOWER(?)"))){
+		     echo "Prepare failed: (" . $connect->errno . ") " . $connect->error;
+		}
+		/* Prepared statement, stage 2: bind and execute */
+		if (!$stmt->bind_param("s", $keyword)){
+		    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+
+		if (!$stmt->execute()) {
+		    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+		if (!($res = $stmt->get_result())) {
+		    echo "Getting result set failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+		// $res = $res->fetch_all(MYSQLI_ASSOC);
+		if($res->num_rows > 0){
+			$res = $res->fetch_all(MYSQLI_ASSOC);
+			return $res;
+		}else{
+			return NULL;
+		}
+	}
+
+
 ?>

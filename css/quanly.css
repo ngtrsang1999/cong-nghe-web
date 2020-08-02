@@ -1,0 +1,170 @@
+.content-quanly{
+		margin-top: -20px;
+}
+
+.menuTopQuanLy{
+	background-color: #37474F;
+	color: #fff;
+	border: 1px solid;
+}
+
+.menuTopQuanLy p{
+	line-height: 42px;
+	margin: 0px;
+}
+
+.menuTopQuanLy a{
+	color: #fff;
+	text-decoration: none;
+}
+.icon-nav-quanly{
+	color: #fff;
+	padding: 10px 15px;
+	border: 1px solid #fff;
+	border-radius: 6px;
+}
+.title-trangquanly{
+	padding-left: 20px;
+	position: absolute;
+	top: 8px;
+}
+
+
+.drop-menu-quanly{
+	margin-top: 8px;
+	margin-left: -20px;
+}
+.drop-menu-quanly a{
+	color: black;
+}
+.drop-menu-quanly a:hover{
+	color: #f18121 ;
+	transition: all .3s ease;
+}
+
+#small-menu-quanly .nav-item{
+	padding-left: 20px;
+	background-color: #263238;
+	position: relative;
+}
+#small-menu-quanly .nav-link:hover {
+	color: #f18121 ;
+	transition: all .3s ease;
+}
+
+@media screen and (max-width: 992px){
+	.content-quanly{
+		margin-top: 0;
+	}
+}
+.list-quanly{
+	border: 1px solid #ddd;
+	background-color: #fff;
+	min-height: 800px;
+}
+
+.title-list-quanly{
+	padding: 15px 20px;
+	border-bottom: 1px solid #ddd;
+	font-size: 15px;
+}
+
+.loc-quanly{
+	padding: 15px 20px;
+	border-bottom: 1px solid #ddd;
+}
+
+td i{
+	cursor: pointer;
+}
+
+.content-modal-quanLyUser{
+	background: none;
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+}
+
+#formXemThongTinUser{
+	background-color: #fff;
+	margin: 0 auto;
+	display: block;
+	width: 100%;
+	max-width: 600px;
+}
+#formXemThongTinUser .title-quanly{
+	font-size: 20px;
+}
+#formXemThongTinUser input,#formXemThongTinUser textarea{
+	width: 100%;
+	font-size: 0.8rem;
+}
+#formXemThongTinUser textarea{
+	text-align: left ;
+	height: auto;
+	max-height: 50px;
+}
+
+#formXemThongTinUser select{
+	font-size: 0.8rem;
+}
+#inforMyStory{
+	padding: 15px;
+	border-right: 1px solid #eee;
+}
+#inforMyStory input,#inforMyStory textarea{
+	margin: 10px 0;
+	max-width: 700px;
+	display: block;
+	width: 100%;
+	font-size: 0.8rem;
+}
+
+#inforMyStory img{
+	display: block;
+	width: 200px;
+	border: 1px solid #eee;
+	margin-bottom: 15px;
+}
+
+#inforMyStory textarea{
+	height: 200px;
+}
+#inforMyStoryChapters{
+	padding-left:15px;
+}
+
+#inforMyStoryChapters ul{
+	border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+	padding: 15px 10px;
+	border: 2px solid #eee;
+	max-height: 700px;
+	min-height: 500px;
+	overflow: auto;
+}
+
+#inforMyStoryChapters ul li a, #inforMyStoryChapters ul li a{
+	text-decoration: none;
+	color: #4a4a4a;
+	font-size: 15px;
+}
+
+#inforMyStoryChapters ul li a:hover{
+	font-style: italic;
+	text-decoration: underline ;
+}
+
+#listImageMychapter{
+	border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+	padding: 15px 10px;
+	min-height: 40px;
+	border: 2px solid #eee;
+	overflow: auto;
+}
+
+#listImageMychapter input {
+	margin-top: 10px;
+	font-size: 0.8rem;
+}

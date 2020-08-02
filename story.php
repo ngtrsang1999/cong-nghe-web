@@ -13,7 +13,7 @@ ob_start();
 	        }else{
 	            $status_name = 'Đã hoàn thành';
 	        }
-	        $listAuthor = trim(strtolower($thisStory["story_author_name"]));
+	        $listAuthor = trim($thisStory["story_author_name"]);
 	        $listAuthor = explode(',', $listAuthor);
 	        $categories_code = getCategory_byStoryCode($connect, $story_code);
 	        $listChapteres = getListChater_byStorycode($connect, $story_code);

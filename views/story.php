@@ -41,7 +41,7 @@
                                     if($key != 0){
                                         echo' ; ';
                                     }
-                                    echo '<a class="org" href="timkiem.php?value='.trim($value).'">'.ucwords($value).'</a>';
+                                    echo '<a class="org" href="tim_kiem.php?tacgia='.trim($value).'">'.ucwords($value).'</a>';
                                 }
                             ?>
                         <p class="info-item">Tình trạng: <?php echo $status_name ?></p>

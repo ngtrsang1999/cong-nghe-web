@@ -10,11 +10,22 @@
                 <div class="title-list-story">
                     Lịch Sử Đọc Truyện            
                </div>
-                <ul class="grid-6 list-story" style ="min-height: 650px">
+                <ul class="grid-6 list-story" style ="min-height: 750px">
                     <?php 
                         if(!empty($list_lichsu)){
                             foreach ($list_lichsu as $key => $value){
                                 $story = getStory_byCode($connect, $key);
+                                if(empty($story)){
+                                    continue;
+                                }
+                                // $lastestchapter = getLatestChapter($connect, $key);
+                                // if(empty($lastestchapter)){
+                                //     $lastestchapterNumber = '';
+                                //     $lastestchapterName = "chưa có chapter nào";
+                                // }else{
+                                //     $lastestchapterName = ucfirst($lastestchapter["chapter_name"]);
+                                //     $lastestchapterNumber = $lastestchapter["chapter_number"];
+                                // }
                                 echo '                             
                                     <li>
                                         <div class="story-item">

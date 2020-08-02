@@ -9,11 +9,19 @@
                 <div class="title-list-story">
                     Truyện Đang Theo Dõi        
                </div>
-                <ul class="grid-6 list-story" style ="min-height: 650px">
+                <ul class="grid-6 list-story" style ="min-height: 750px">
                     <?php 
                         if(!empty($list_theodoi)){
                             foreach ($list_theodoi as $value){
                                 $story = getStory_byCode($connect, $value);
+                                $lastestchapter = getLatestChapter($connect, $value);
+                                if(empty($lastestchapter)){
+                                    $lastestchapterNumber = '';
+                                    $lastestchapterName = "chưa có chapter nào";
+                                }else{
+                                    $lastestchapterName = ucfirst($lastestchapter["chapter_name"]);
+                                    $lastestchapterNumber = $lastestchapter["chapter_number"];
+                                }
                                 echo '                             
                                     <li>
                                         <div class="story-item">
@@ -29,8 +37,8 @@
                                              </h3>
                                                 
                                              <div class="episode-story">
-                                                 <a href="read_story.php?id='.$value.'&chapter='.getLatestChapter($connect, $story["story_code"])["chapter_number"].'">
-                                                 '.ucfirst(getLatestChapter($connect, $story["story_code"])["chapter_name"]).'
+                                                 <a href="read_story.php?id='.$value.'&chapter='.$lastestchapterNumber.'">
+                                                 '.$lastestchapterName.'
                                                  </a>
                                              </div>
                                         </div>

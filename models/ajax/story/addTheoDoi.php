@@ -10,7 +10,8 @@
 		}else{
 			$listTheoDoi = json_decode($_SESSION['user']['theo_doi'], true);
 			if(!in_array($story_code, $listTheoDoi)){
-				$listTheoDoi[] = $story_code;
+				array_unshift($listTheoDoi, $story_code);
+				// $listTheoDoi[] = $story_code;
 			}	
 		}
 		$_SESSION['user']['theo_doi'] = json_encode($listTheoDoi);

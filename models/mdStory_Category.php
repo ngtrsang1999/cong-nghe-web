@@ -34,4 +34,37 @@
 		}
 	}
 
+	function insertStory_Category($connect, $story_code, $category_code){
+		if ($connect->connect_errno) {
+		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
+		}
+		if (!($stmt = $connect->prepare("INSERT INTO story_category (story_code,category_code) VALUES (?, ?)"))){
+		     echo "Prepare failed: (" . $connect->errno . ") " . $connect->error;
+		}
+
+		/* Prepared statement, stage 2: bind and execute */
+		if (!$stmt->bind_param("ss", $story_code, $category_code)){
+		    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+
+		return $stmt->execute();
+	}
+
+	function deleteStoryCategoryByStoryID($connect, $story_code){
+		if ($connect->connect_errno) {
+		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
+		}
+		if (!($stmt = $connect->prepare("DELETE FROM story_category WHERE story_code = ?"))){
+		     echo "Prepare failed: (" . $connect->errno . ") " . $connect->error;
+		}
+
+		/* Prepared statement, stage 2: bind and execute */
+		if (!$stmt->bind_param("s", $story_code)){
+		    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+		return $stmt->execute();
+	}
+
+
+
 ?>

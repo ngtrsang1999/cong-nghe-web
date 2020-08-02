@@ -794,3 +794,76 @@ body{
 .list-story{
     min-height: 200px;
 }
+.center-quanlytaikhoan .box-left{
+    border-right: 1px solid #eee;
+}
+
+.center-quanlytaikhoan .box-left ul{
+    padding: 0px;
+    margin: 0px;
+    margin-top: 25px;
+}
+.center-quanlytaikhoan .box-left ul li{
+    list-style-type: none;
+}
+
+.center-quanlytaikhoan .box-left ul li a{
+    font-weight: 500 !important;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    color: #000;
+    border-bottom: 1px solid #eee;
+    padding: 11px 0 11px 27px;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+.center-quanlytaikhoan .box-left ul li a i{
+    color: #fd7e14;
+    width: 20px;
+    text-align: center;
+}
+.center-quanlytaikhoan .box-right input, label{
+    font-weight: 600 !important;
+    width: 100%;
+    display: block;
+}
+
+.center-quanlytaikhoan .box-right input{
+    padding-left: 10px;
+    align-items: center;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 0.8rem;
+    height: 2.25em;
+    justify-content: flex-start;
+    line-height: 1.5;
+    position: relative;
+    vertical-align: top;
+    margin-bottom: 20px;
+}
+.center-quanlytaikhoan .box-right .title-quanly{
+    font-size: 20px;
+    font-weight: 900!important;
+}
+.radio-gioitinh{
+    width: 100%;
+    display: block;
+}
+.radio-gioitinh .radio-btn{
+    margin: 0px;
+    display: inline-block;
+    width: 15px!important;
+}
+
+.radio-gioitinh label{
+    line-height: 29px;
+    font-size: 0.9rem;
+    display: inline-block!important;
+    width: auto!important;
+}
+.radio-gioitinh label input{
+    margin: 0px!important;
+}

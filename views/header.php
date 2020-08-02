@@ -1,9 +1,16 @@
 <?php
-    session_start();    
+    session_start();   
+    date_default_timezone_set('Asia/Ho_Chi_Minh'); 
+    include_once('./lb_function.php');
+    include_once('./models/mdUser.php'); 
     include_once('./models/mdStory.php'); 
     include_once('./models/mdChapter.php');
     include_once('./models/mdCategories.php');
     include_once('./models/mdStory_Category.php');   
+    include_once('./models/mdGroupUser.php');   
+    include_once('./models/mdTinhTrang.php');
+    include_once('./models/mdStatus.php');
+    include_once('./models/mdGroup_Act.php');
     $listCategories = getListCategories($connect);
 ?>
 <!DOCTYPE html>
@@ -22,8 +29,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- import my css login -->
+    <link rel="icon" href="./img/logo/logo_home.png" type="image/gif" sizes="20x10">
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/story.css">
+    <link rel="stylesheet" href="./css/quanly.css">
 </head>
 <body>
 
@@ -37,12 +46,11 @@
                             <img src="./img/logo/logo_home.png" class="rounded img-fluid" alt="Cinque Terre"></a>
                     </div>
                     <div class="top-nav-input ">
-                        <form class="form-inline" action="/action_page.php">
+                        <form class="form-inline" action="./tim_kiem.php" method="GET">
                             <div class="input-group">
-
-                                <input type="text" class="form-control" placeholder="Username">
+                                <input type="text" class="form-control" name="keyword" placeholder="Nhập từ khóa">
                                 <div class="input-group-append">
-                                    <button class="btn_search " type="submit"><i class="fa fa-search"></i>
+                                    <button class="btn_search" type="submit"><i class="fa fa-search"></i>
                                     </button>
                                 </div>
                             </div>
@@ -69,7 +77,10 @@
                                                     <button class="avatar-user"><img src="http://static.truyenqq.com/template/frontend/images/noavatar.png" alt=""></button>
                                                     <ul class="user-links">
                                                         <li>
-                                                            <a href="quanly.php"><i class="fa fa-user-circle" aria-hidden="true"></i> Quản lý tài khoản</a>
+                                                            <a href="quanly.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Tới Trang Quản lý</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="quanly_taikhoan.php"><i class="fa fa-user-circle" aria-hidden="true"></i> Quản lý tài khoản</a>
                                                         </li>
                                                         <li>
                                                             <a href="theodoi.php"><i class="fa fa-heart" aria-hidden="true"></i> Truyện đang theo dõi</a>

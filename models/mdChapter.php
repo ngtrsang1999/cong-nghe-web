@@ -221,4 +221,24 @@
 		return $res = $res->fetch_all(MYSQLI_ASSOC);
 	}
 
+	function addChapter($connect, $data){
+		if ($connect->connect_errno) {
+		    echo "Failed to connect to MySQL: (" . $connect->connect_errno . ") " . $connect->connect_error;
+		}
+		if (!($stmt = $connect->prepare("
+			INSERT INTO chapteres 
+			(chapter_name, chapter_number, story_code, create_at, chapter_content)
+			VALUES(?,?,?,?,?)
+			"))){
+		     echo "Prepare failed: (" . $connect->errno . ") " . $connect->error;
+		}
+
+		/* Prepared statement, stage 2: bind and execute */
+		if (!$stmt->bind_param("sdsss", $data["chapter_name"], $data["chapter_number"], $data["story_code"], $data["create_at"], $data["chapter_content"])){
+		    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+
+		return $stmt->execute();
+	}
+
 ?>

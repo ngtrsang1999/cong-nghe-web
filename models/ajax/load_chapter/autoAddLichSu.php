@@ -14,7 +14,7 @@
 			$listLichSu = array();
 			$listLichSu[$story_code] = $chapter_number;
 		}else{
-			$listLichSu = json_decode($_SESSION['user']['lich_su'], true);	
+			$listLichSu = json_decode($_SESSION['user']['lich_su'], true);
 			if(count($listLichSu) >= 30){
 				// Xóa phần tử đầu tiên của mảng $listLichSu
 				if(array_key_exists($story_code, $listLichSu)){
@@ -27,8 +27,14 @@
 						}
 					}
 				}
+			}else{
+				if(array_key_exists($story_code, $listLichSu)){
+					unset($listLichSu[$story_code]);
+				}
 			}
+			$listLichSu = array_reverse($listLichSu);
 			$listLichSu[$story_code] = $chapter_number;	
+			$listLichSu = array_reverse($listLichSu);
 		}
 		$_SESSION['user']['lich_su'] = json_encode($listLichSu);
 		updateLichSu($connect, $_SESSION['user']['user_id'], $_SESSION['user']['lich_su']);

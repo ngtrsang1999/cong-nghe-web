@@ -8,6 +8,14 @@
 	if($order != 'views_month'){
 		$listStory = getListStories($connect, $page = 1, $limit = 18, $order);
 		foreach ($listStory as  $value) {
+            $lastestchapter = getLatestChapter($connect, $value["story_code"]);
+            if(empty($lastestchapter)){
+                $lastestchapterNumber = '';
+                $lastestchapterName = "chưa có chapter nào";
+            }else{
+                $lastestchapterName = ucfirst($lastestchapter["chapter_name"]);
+                $lastestchapterNumber = $lastestchapter["chapter_number"];
+            }
 			$output .= '<li>
 	                            <div class="story-item">
 	                                <a href="story.php?id='.$value["story_code"].'" title ="'.$value["story_name"].'">
@@ -21,7 +29,7 @@
 	                                 </h3>
 
 	                                 <div class="episode-story"> 
-	                                     <a href="read_story.php?id='.$value["story_code"].'&chapter='.getLatestChapter($connect, $value["story_code"])["chapter_number"].'">'.ucfirst(getLatestChapter($connect, $value["story_code"])["chapter_name"]).'</a>
+	                                     <a href="read_story.php?id='.$value["story_code"].'&chapter='.$lastestchapterNumber.'">'.$lastestchapterName.'</a>
 	                                 </div>
 	                            </div>
 	                        </li>';
